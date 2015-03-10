@@ -173,7 +173,7 @@ def shell_handler(msg):
         }
         send(iopub_stream, 'pyin', content, parent_header=msg['header'])
         #######################################################################
-        result = bend.send(p, user_input, ".*ok\r\n")
+        result = bend.send(user_input)
         content = {
             'execution_count': execution_count,
             'data': {"text/plain": result},
@@ -282,7 +282,7 @@ auth = hmac.HMAC(
     secure_key, 
     digestmod=signature_schemes[config["signature_scheme"]])
 execution_count = 1
-p = bend.create('gforth') # added by mcarter
+
 
 ##########################################
 # Heartbeat:
@@ -328,4 +328,6 @@ hb_thread.start()
 
 dprint(1, "Ready! Listening...")
 
+bend.read_config()
 ioloop.IOLoop.instance().start()
+#print(sys.argv)
