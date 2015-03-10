@@ -16,7 +16,8 @@ python 3
 
 # Example
 
-Assuming you have gforth installed on your system, you can start a gforth interpretter by running
+Assuming you have gforth installed on your system, you can start a gforth interpretter by running:
+
     ./moonio
 
 This will start a qtconsole.
